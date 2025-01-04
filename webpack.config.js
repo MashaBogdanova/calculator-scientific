@@ -1,4 +1,5 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,7 +20,7 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-    ]
+    ],
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -30,6 +31,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+    }),
+    new ESLintPlugin({
+      extensions: ['ts', 'js', 'scss'],
+      failOnError: false,
+      overrideConfigFile: path.resolve(__dirname, 'eslint.config.mjs'),
+      configType: 'flat',
     }),
   ],
 };
