@@ -1,0 +1,14 @@
+@use '../abstract/constants' as constants;
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 26rem;
+  height: 52rem;
+  padding: 3rem 2.5rem;
+
+  background-color: constants.$color-light-xs;
+  border-radius: 3.9rem;
+}

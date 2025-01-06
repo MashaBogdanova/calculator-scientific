@@ -1,0 +1,19 @@
+@use '../abstract/constants' as constants;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+                  to bottom,
+                  constants.$color-primary-xs 0%,
+                  constants.$color-primary-s 100%
+  );
+}
