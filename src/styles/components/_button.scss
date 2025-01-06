@@ -1,0 +1,39 @@
+@use '../abstract/constants' as constants;
+@use '../abstract/mixins';
+
+.button {
+  width: 4.2rem;
+  height: 4.2rem;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: constants.$color-light;
+  text-shadow: 1px 1px 2px constants.$color-tertiary-m;
+
+  background-color: constants.$color-light-s;
+  border-radius: 50%;
+  @include mixins.button-border(4px);
+
+  transition: transform 150ms ease-out;
+
+  &_accent {
+    background-color: constants.$color-primary;
+  }
+
+  &_small {
+    width: 2.5rem;
+    height: 2.2rem;
+
+    font-size: 1.1rem;
+    color: constants.$color-secondary;
+
+    background-color: constants.$color-dark-s;
+    border-radius: 20%;
+    @include mixins.button-border(2px);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}

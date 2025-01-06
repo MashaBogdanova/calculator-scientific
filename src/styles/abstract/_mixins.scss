@@ -1,0 +1,6 @@
+@use './constants' as constants;
+
+@mixin button-border($size) {
+  border: 0.5px solid constants.$color-light-xs;
+  box-shadow: 0 $size $size constants.$color-dark-m;
+}
