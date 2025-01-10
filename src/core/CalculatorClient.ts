@@ -1,6 +1,7 @@
 import { ClearCommand } from '../commands/ClearCommand';
 import { CubeCommand } from '../commands/CubeCommand';
 import { NegateCommand } from '../commands/NegateCommand';
+import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { SquareCommand } from '../commands/SquareCommand';
 import { CalculatorInvoker } from './CalculatorInvoker';
@@ -27,5 +28,6 @@ export class CalculatorClient {
     this.invoker.setCommand('+/-', new NegateCommand());
     this.invoker.setCommand('x²', new SquareCommand());
     this.invoker.setCommand('x³', new CubeCommand());
+    this.invoker.setCommand('10ˣ', new PowerOfTenCommand());
   }
 }

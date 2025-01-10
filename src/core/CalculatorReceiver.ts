@@ -24,4 +24,8 @@ export class CalculatorReceiver {
   static cube() {
     this.value = this.value ** 3;
   }
+
+  static powerOfTen() {
+    this.value = 10 ** this.value;
+  }
 }
