@@ -1,7 +1,14 @@
 @use './constants' as constants;
 
-@mixin button($width, $height, $font-size, $color, $background, $border-size,
-$border-radius) {
+@mixin button(
+  $width,
+  $height,
+  $font-size,
+  $color,
+  $background,
+  $border-size,
+  $border-radius
+) {
   width: $width;
   height: $height;
 

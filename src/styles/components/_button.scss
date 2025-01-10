@@ -2,7 +2,15 @@
 @use '../abstract/mixins';
 
 .button {
-  @include mixins.button(4.2rem, 4.2rem, 1.8rem, constants.$color-light, constants.$color-light-s, 4px, 50%);
+  @include mixins.button(
+    4.2rem,
+    4.2rem,
+    1.8rem,
+    constants.$color-light,
+    constants.$color-light-s,
+    4px,
+    50%
+  );
   text-shadow: 1px 1px 2px constants.$color-tertiary-m;
 
   &_accent {
@@ -10,6 +18,14 @@
   }
 
   &_small {
-    @include mixins.button(2.5rem, 2.2rem, 1.1rem, constants.$color-secondary, constants.$color-dark-s, 2px, 20%);
+    @include mixins.button(
+      2.5rem,
+      2.2rem,
+      1.1rem,
+      constants.$color-secondary,
+      constants.$color-dark-s,
+      2px,
+      20%
+    );
   }
 }
