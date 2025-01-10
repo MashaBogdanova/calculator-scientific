@@ -16,4 +16,12 @@ export class CalculatorReceiver {
   static clear() {
     this.value = 0;
   }
+
+  static square() {
+    this.value = this.value ** 2;
+  }
+
+  static cube() {
+    this.value = this.value ** 3;
+  }
 }
