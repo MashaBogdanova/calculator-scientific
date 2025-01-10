@@ -3,6 +3,7 @@ import { CubeCommand } from '../commands/CubeCommand';
 import { CubeRootCommand } from '../commands/CubeRootCommand';
 import { NegateCommand } from '../commands/NegateCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
+import { ReciprocalCommand } from '../commands/ReciprocalCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { SqrtCommand } from '../commands/SqrtCommand';
 import { SquareCommand } from '../commands/SquareCommand';
@@ -33,5 +34,6 @@ export class CalculatorClient {
     this.invoker.setCommand('10ˣ', new PowerOfTenCommand());
     this.invoker.setCommand('√x', new SqrtCommand());
     this.invoker.setCommand('∛x', new CubeRootCommand());
+    this.invoker.setCommand('1/x', new ReciprocalCommand());
   }
 }

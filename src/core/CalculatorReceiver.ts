@@ -42,4 +42,15 @@ export class CalculatorReceiver {
   static cubeRoot() {
     this.value = getCubeRoot(this.value);
   }
+
+  static reciprocal() {
+    if (this.value !== 0) {
+      this.value = 1 / this.value;
+    } else {
+      alert(
+        "Whoops! You can't divide by zero. Please provide a non-zero value."
+      );
+      return;
+    }
+  }
 }
