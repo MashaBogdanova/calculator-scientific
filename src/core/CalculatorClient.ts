@@ -1,4 +1,5 @@
 import { ClearCommand } from '../commands/ClearCommand';
+import { NegateCommand } from '../commands/NegateCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { CalculatorInvoker } from './CalculatorInvoker';
 
@@ -21,5 +22,6 @@ export class CalculatorClient {
     this.invoker.setCommand('7', new SetValueCommand(7));
     this.invoker.setCommand('8', new SetValueCommand(8));
     this.invoker.setCommand('9', new SetValueCommand(9));
+    this.invoker.setCommand('+/-', new NegateCommand());
   }
 }

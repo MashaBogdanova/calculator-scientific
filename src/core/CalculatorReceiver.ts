@@ -9,6 +9,10 @@ export class CalculatorReceiver {
     this.value = newValue;
   }
 
+  static negate() {
+    this.value = -this.value;
+  }
+
   static clear() {
     this.value = 0;
   }
