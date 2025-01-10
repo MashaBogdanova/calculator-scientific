@@ -1,48 +1,47 @@
-interface Button {
+export interface Button {
   label: string;
-  action: string | null;
   isAccent?: boolean;
   isSmall?: boolean;
 }
 
 export const calculatorButtons: Button[] = [
-  { label: 'mc', action: 'clearMemory', isAccent: true, isSmall: true },
-  { label: 'm+', action: 'addToMemory', isAccent: true, isSmall: true },
-  { label: 'm-', action: 'subtractFromMemory', isAccent: true, isSmall: true },
-  { label: 'mr', action: 'recallMemory', isAccent: true, isSmall: true },
+  { label: 'mc', isAccent: true, isSmall: true },
+  { label: 'm+', isAccent: true, isSmall: true },
+  { label: 'm-', isAccent: true, isSmall: true },
+  { label: 'mr', isAccent: true, isSmall: true },
 
-  { label: 'x²', action: 'square', isSmall: true },
-  { label: 'x³', action: 'cube', isSmall: true },
-  { label: 'xʸ', action: 'power', isSmall: true },
-  { label: '10ˣ', action: 'power10', isSmall: true },
+  { label: 'x²', isSmall: true },
+  { label: 'x³', isSmall: true },
+  { label: 'xʸ', isSmall: true },
+  { label: '10ˣ', isSmall: true },
 
-  { label: '1/x', action: 'reciprocal', isSmall: true },
-  { label: '√x', action: 'sqrt', isSmall: true },
-  { label: '∛x', action: 'cbrt', isSmall: true },
-  { label: 'y√x', action: 'nthRoot', isSmall: true },
+  { label: '1/x', isSmall: true },
+  { label: '√x', isSmall: true },
+  { label: '∛x', isSmall: true },
+  { label: 'y√x', isSmall: true },
 
-  { label: 'AC', action: 'clear' },
-  { label: '+/-', action: 'negate' },
-  { label: '%', action: 'percent' },
-  { label: '÷', action: 'divide', isAccent: true },
+  { label: 'AC' },
+  { label: '+/-' },
+  { label: '%' },
+  { label: '÷', isAccent: true },
 
-  { label: '7', action: null },
-  { label: '8', action: null },
-  { label: '9', action: null },
-  { label: '×', action: 'multiply', isAccent: true },
+  { label: '7' },
+  { label: '8' },
+  { label: '9' },
+  { label: '×', isAccent: true },
 
-  { label: '4', action: null },
-  { label: '5', action: null },
-  { label: '6', action: null },
-  { label: '-', action: 'subtract', isAccent: true },
+  { label: '4' },
+  { label: '5' },
+  { label: '6' },
+  { label: '-', isAccent: true },
 
-  { label: '1', action: null },
-  { label: '2', action: null },
-  { label: '3', action: null },
-  { label: '+', action: 'add', isAccent: true },
+  { label: '1' },
+  { label: '2' },
+  { label: '3' },
+  { label: '+', isAccent: true },
 
-  { label: '0', action: null },
-  { label: '.', action: null },
-  { label: 'x!', action: 'factorial' },
-  { label: '=', action: 'equals', isAccent: true },
+  { label: '0' },
+  { label: '.' },
+  { label: 'x!' },
+  { label: '=', isAccent: true },
 ];
