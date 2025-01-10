@@ -1,5 +1,11 @@
 import './styles/styles.scss';
 
-import { Calculator } from './modules/calculator';
+import { calculatorButtons } from './config/buttons.config';
+import { CalculatorClient } from './core/CalculatorClient';
+import { CalculatorInvoker } from './core/CalculatorInvoker';
+import { Calculator } from './UI/calculator';
 
-new Calculator();
+const invoker = new CalculatorInvoker();
+const client = new CalculatorClient(invoker);
+client.setupCommands();
+new Calculator(calculatorButtons, invoker);
