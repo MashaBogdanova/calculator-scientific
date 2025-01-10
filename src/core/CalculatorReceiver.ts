@@ -1,3 +1,6 @@
+import { getCubeRoot } from '../utils/get-cube-root';
+import { getSqrt } from '../utils/get-sqrt';
+
 export class CalculatorReceiver {
   private static value: number = 0;
 
@@ -27,5 +30,16 @@ export class CalculatorReceiver {
 
   static powerOfTen() {
     this.value = 10 ** this.value;
+  }
+
+  static sqrt() {
+    const sqrt = getSqrt(this.value);
+    if (sqrt !== undefined) {
+      this.value = sqrt;
+    }
+  }
+
+  static cubeRoot() {
+    this.value = getCubeRoot(this.value);
   }
 }

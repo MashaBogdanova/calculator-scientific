@@ -1,8 +1,10 @@
 import { ClearCommand } from '../commands/ClearCommand';
 import { CubeCommand } from '../commands/CubeCommand';
+import { CubeRootCommand } from '../commands/CubeRootCommand';
 import { NegateCommand } from '../commands/NegateCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
+import { SqrtCommand } from '../commands/SqrtCommand';
 import { SquareCommand } from '../commands/SquareCommand';
 import { CalculatorInvoker } from './CalculatorInvoker';
 
@@ -29,5 +31,7 @@ export class CalculatorClient {
     this.invoker.setCommand('x²', new SquareCommand());
     this.invoker.setCommand('x³', new CubeCommand());
     this.invoker.setCommand('10ˣ', new PowerOfTenCommand());
+    this.invoker.setCommand('√x', new SqrtCommand());
+    this.invoker.setCommand('∛x', new CubeRootCommand());
   }
 }
