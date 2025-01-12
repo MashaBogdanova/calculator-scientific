@@ -59,7 +59,7 @@ export class Calculator {
   static updateDisplay(value: number) {
     const display = document.querySelector('.display') as HTMLElement;
     if (display) {
-      display!.innerText = value.toString();
+      display.innerText = value.toString();
     }
   }
 }
