@@ -9,6 +9,6 @@ export class SetValueCommand implements Command {
   }
 
   execute() {
-    CalculatorReceiver.setValue(this.value);
+    CalculatorReceiver.setValue(String(this.value));
   }
 }

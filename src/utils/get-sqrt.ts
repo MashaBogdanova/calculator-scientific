@@ -1,8 +1,8 @@
+import { ERROR_MESSAGE_SQRT } from '../constants';
+
 export function getSqrt(value: number): number | undefined {
   if (value < 0) {
-    alert(
-      'Whoops! That number is negative. Please try again with a non-negative value'
-    );
+    alert(ERROR_MESSAGE_SQRT);
 
     return;
   }

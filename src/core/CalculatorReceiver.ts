@@ -1,59 +1,61 @@
+import { ERROR_MESSAGE_DIVIDE, INITIAL_VALUE } from '../constants';
 import { getCubeRoot } from '../utils/get-cube-root';
 import { getSqrt } from '../utils/get-sqrt';
 
 export class CalculatorReceiver {
-  private static value: number = 0;
+  private static value: string = INITIAL_VALUE;
   private static storedValue: number | null = null;
   private static currentOperation: ((a: number, b: number) => number) | null =
     null;
 
   static getValue() {
-    return this.value;
+    return Number(this.value);
   }
 
-  static setValue(newValue: number) {
-    this.value = newValue;
+  static setValue(newValue: string) {
+    if (this.currentOperation !== null) {
+      this.value = INITIAL_VALUE;
+    }
+    this.value = this.value + newValue;
   }
 
   static negate() {
-    this.value = -this.value;
+    this.value = '-' + this.value;
   }
 
   static clear() {
-    this.value = 0;
+    this.value = INITIAL_VALUE;
   }
 
   static square() {
-    this.value = this.value ** 2;
+    this.value = String(Number(this.value) ** 2);
   }
 
   static cube() {
-    this.value = this.value ** 3;
+    this.value = String(Number(this.value) ** 3);
   }
 
   static powerOfTen() {
-    this.value = 10 ** this.value;
+    this.value = String(10 ** Number(this.value));
   }
 
   static sqrt() {
-    const sqrt = getSqrt(this.value);
+    const sqrt = getSqrt(Number(this.value));
 
     if (sqrt !== undefined) {
-      this.value = sqrt;
+      this.value = String(sqrt);
     }
   }
 
   static cubeRoot() {
-    this.value = getCubeRoot(this.value);
+    this.value = String(getCubeRoot(Number(this.value)));
   }
 
   static reciprocal() {
-    if (this.value !== 0) {
-      this.value = 1 / this.value;
+    if (Number(this.value) !== 0) {
+      this.value = String(1 / Number(this.value));
     } else {
-      alert(
-        "Whoops! You can't divide by zero. Please provide a non-zero value."
-      );
+      alert(ERROR_MESSAGE_DIVIDE);
 
       return;
     }
@@ -61,14 +63,16 @@ export class CalculatorReceiver {
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {
     if (this.storedValue === null) {
-      this.storedValue = this.value;
+      this.storedValue = Number(this.value);
     }
     this.currentOperation = operation;
   }
 
   static equals() {
     if (this.storedValue !== null && this.currentOperation !== null) {
-      this.value = this.currentOperation(this.storedValue, this.value);
+      this.value = String(
+        this.currentOperation(this.storedValue, Number(this.value))
+      );
       this.storedValue = null;
       this.currentOperation = null;
     }
