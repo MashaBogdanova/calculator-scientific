@@ -3,6 +3,9 @@ import { getSqrt } from '../utils/get-sqrt';
 
 export class CalculatorReceiver {
   private static value: number = 0;
+  private static storedValue: number | null = null;
+  private static currentOperation: ((a: number, b: number) => number) | null =
+    null;
 
   static getValue() {
     return this.value;
@@ -51,6 +54,21 @@ export class CalculatorReceiver {
         "Whoops! You can't divide by zero. Please provide a non-zero value."
       );
       return;
+    }
+  }
+
+  static performBinaryOperation(operation: (a: number, b: number) => number) {
+    if (this.storedValue === null) {
+      this.storedValue = this.value;
+    }
+    this.currentOperation = operation;
+  }
+
+  static equals() {
+    if (this.storedValue !== null && this.currentOperation !== null) {
+      this.value = this.currentOperation(this.storedValue, this.value);
+      this.storedValue = null;
+      this.currentOperation = null;
     }
   }
 }

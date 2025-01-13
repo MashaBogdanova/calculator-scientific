@@ -1,6 +1,8 @@
+import { BinaryOperationCommand } from '../commands/BinaryOperationCommand';
 import { ClearCommand } from '../commands/ClearCommand';
 import { CubeCommand } from '../commands/CubeCommand';
 import { CubeRootCommand } from '../commands/CubeRootCommand';
+import { EqualsCommand } from '../commands/EqualsCommand';
 import { NegateCommand } from '../commands/NegateCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { ReciprocalCommand } from '../commands/ReciprocalCommand';
@@ -35,5 +37,7 @@ export class CalculatorClient {
     this.invoker.setCommand('√x', new SqrtCommand());
     this.invoker.setCommand('∛x', new CubeRootCommand());
     this.invoker.setCommand('1/x', new ReciprocalCommand());
+    this.invoker.setCommand('+', new BinaryOperationCommand((a, b) => a + b));
+    this.invoker.setCommand('=', new EqualsCommand());
   }
 }
