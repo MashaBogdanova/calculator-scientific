@@ -7,14 +7,5 @@ export function getSqrt(value: number): number {
     return value;
   }
 
-  if (value === 0) return 0;
-
-  let guess = value / 2 || 1;
-  let iterations = 20;
-
-  while (iterations--) {
-    guess = 0.5 * (guess + value / guess);
-  }
-
-  return guess;
+  return value ** (1 / 2);
 }

@@ -1,5 +1,4 @@
 import { INITIAL_VALUE } from '../constants';
-import { getCubeRoot } from '../utils/get-cube-root';
 import { getReciprocal } from '../utils/get-reciprocal';
 import { getSqrt } from '../utils/get-sqrt';
 
@@ -45,7 +44,7 @@ export class CalculatorReceiver {
   }
 
   static cubeRoot() {
-    this.value = String(getCubeRoot(Number(this.value)));
+    this.value = String(Number(this.value) ** (1 / 3));
   }
 
   static reciprocal() {
