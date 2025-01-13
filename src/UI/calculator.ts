@@ -60,7 +60,7 @@ export class Calculator {
     const display = document.querySelector('.display') as HTMLElement;
 
     if (display) {
-      display.innerText = value.toString();
+      display.innerText = String(value).slice(0, 12);
     }
   }
 }
