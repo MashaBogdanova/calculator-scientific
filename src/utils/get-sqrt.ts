@@ -1,10 +1,10 @@
 import { ERROR_MESSAGE_SQRT } from '../constants';
 
-export function getSqrt(value: number): number | undefined {
+export function getSqrt(value: number): number {
   if (value < 0) {
     alert(ERROR_MESSAGE_SQRT);
 
-    return;
+    return value;
   }
 
   if (value === 0) return 0;

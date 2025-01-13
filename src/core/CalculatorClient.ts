@@ -9,6 +9,8 @@ import { ReciprocalCommand } from '../commands/ReciprocalCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { SqrtCommand } from '../commands/SqrtCommand';
 import { SquareCommand } from '../commands/SquareCommand';
+import { divide } from '../utils/divide';
+import { getNthRoot } from '../utils/get-nth-root';
 import { CalculatorInvoker } from './CalculatorInvoker';
 
 export class CalculatorClient {
@@ -31,17 +33,24 @@ export class CalculatorClient {
     this.invoker.setCommand('8', new SetValueCommand(8));
     this.invoker.setCommand('9', new SetValueCommand(9));
     this.invoker.setCommand('+/-', new NegateCommand());
-    this.invoker.setCommand('x²', new SquareCommand());
-    this.invoker.setCommand('x³', new CubeCommand());
-    this.invoker.setCommand('10ˣ', new PowerOfTenCommand());
-    this.invoker.setCommand('√x', new SqrtCommand());
-    this.invoker.setCommand('∛x', new CubeRootCommand());
-    this.invoker.setCommand('1/x', new ReciprocalCommand());
-    this.invoker.setCommand('xʸ', new BinaryOperationCommand((a, b) => a ** b));
     this.invoker.setCommand('+', new BinaryOperationCommand((a, b) => a + b));
     this.invoker.setCommand('-', new BinaryOperationCommand((a, b) => a - b));
     this.invoker.setCommand('×', new BinaryOperationCommand((a, b) => a * b));
-    this.invoker.setCommand('÷', new BinaryOperationCommand((a, b) => a / b));
+    this.invoker.setCommand(
+      '÷',
+      new BinaryOperationCommand((a, b) => divide(a, b))
+    );
+    this.invoker.setCommand('x²', new SquareCommand());
+    this.invoker.setCommand('x³', new CubeCommand());
+    this.invoker.setCommand('xʸ', new BinaryOperationCommand((a, b) => a ** b));
+    this.invoker.setCommand('10ˣ', new PowerOfTenCommand());
+    this.invoker.setCommand('√x', new SqrtCommand());
+    this.invoker.setCommand('∛x', new CubeRootCommand());
+    this.invoker.setCommand(
+      'y√x',
+      new BinaryOperationCommand((a, b) => getNthRoot(a, b))
+    );
+    this.invoker.setCommand('1/x', new ReciprocalCommand());
     this.invoker.setCommand('=', new EqualsCommand());
   }
 }

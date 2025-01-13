@@ -1,5 +1,6 @@
-import { ERROR_MESSAGE_DIVIDE, INITIAL_VALUE } from '../constants';
+import { INITIAL_VALUE } from '../constants';
 import { getCubeRoot } from '../utils/get-cube-root';
+import { getReciprocal } from '../utils/get-reciprocal';
 import { getSqrt } from '../utils/get-sqrt';
 
 export class CalculatorReceiver {
@@ -40,11 +41,7 @@ export class CalculatorReceiver {
   }
 
   static sqrt() {
-    const sqrt = getSqrt(Number(this.value));
-
-    if (sqrt !== undefined) {
-      this.value = String(sqrt);
-    }
+    this.value = String(getSqrt(Number(this.value)));
   }
 
   static cubeRoot() {
@@ -52,13 +49,7 @@ export class CalculatorReceiver {
   }
 
   static reciprocal() {
-    if (Number(this.value) !== 0) {
-      this.value = String(1 / Number(this.value));
-    } else {
-      alert(ERROR_MESSAGE_DIVIDE);
-
-      return;
-    }
+    this.value = String(getReciprocal(Number(this.value)));
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {
