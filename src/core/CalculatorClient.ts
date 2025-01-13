@@ -37,7 +37,11 @@ export class CalculatorClient {
     this.invoker.setCommand('√x', new SqrtCommand());
     this.invoker.setCommand('∛x', new CubeRootCommand());
     this.invoker.setCommand('1/x', new ReciprocalCommand());
+    this.invoker.setCommand('xʸ', new BinaryOperationCommand((a, b) => a ** b));
     this.invoker.setCommand('+', new BinaryOperationCommand((a, b) => a + b));
+    this.invoker.setCommand('-', new BinaryOperationCommand((a, b) => a - b));
+    this.invoker.setCommand('×', new BinaryOperationCommand((a, b) => a * b));
+    this.invoker.setCommand('÷', new BinaryOperationCommand((a, b) => a / b));
     this.invoker.setCommand('=', new EqualsCommand());
   }
 }
