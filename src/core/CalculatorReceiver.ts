@@ -37,6 +37,7 @@ export class CalculatorReceiver {
 
   static sqrt() {
     const sqrt = getSqrt(this.value);
+
     if (sqrt !== undefined) {
       this.value = sqrt;
     }
@@ -53,6 +54,7 @@ export class CalculatorReceiver {
       alert(
         "Whoops! You can't divide by zero. Please provide a non-zero value."
       );
+
       return;
     }
   }

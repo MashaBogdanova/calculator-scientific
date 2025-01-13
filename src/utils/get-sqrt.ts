@@ -3,6 +3,7 @@ export function getSqrt(value: number): number | undefined {
     alert(
       'Whoops! That number is negative. Please try again with a non-negative value'
     );
+
     return;
   }
 

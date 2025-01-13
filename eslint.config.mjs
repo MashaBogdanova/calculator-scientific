@@ -19,23 +19,23 @@ const compat = new FlatCompat({
 export default [...compat.extends(
   "eslint:recommended",
   "plugin:@typescript-eslint/recommended",
-  "plugin:prettier/recommended",
+  "plugin:prettier/recommended"
 ), {
   plugins: {
     "@typescript-eslint": typescriptEslint,
     prettier,
-    "simple-import-sort": simpleImportSort,
+    "simple-import-sort": simpleImportSort
   },
 
   languageOptions: {
     globals: {
       ...globals.browser,
-      ...globals.node,
+      ...globals.node
     },
 
     parser: tsParser,
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: "module"
   },
 
   rules: {
@@ -46,5 +46,11 @@ export default [...compat.extends(
     "no-console": "warn",
     "no-debugger": "warn",
     "object-curly-spacing": ["error", "always"],
-  },
+    "arrow-body-style": ["error", "as-needed"],
+    "padding-line-between-statements": [
+      "error",
+      { blankLine: "always", prev: "*", next: "if" },
+      { blankLine: "always", prev: "*", next: "return" }
+    ]
+  }
 }];
