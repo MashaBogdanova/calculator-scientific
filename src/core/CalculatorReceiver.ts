@@ -1,4 +1,5 @@
 import { INITIAL_VALUE } from '../constants';
+import { getFactorial } from '../utils/get-factorial';
 import { getReciprocal } from '../utils/get-reciprocal';
 import { getSqrt } from '../utils/get-sqrt';
 
@@ -50,6 +51,10 @@ export class CalculatorReceiver {
 
   static reciprocal() {
     this.value = String(getReciprocal(Number(this.value)));
+  }
+
+  static factorial() {
+    this.value = String(getFactorial(Number(this.value)));
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {

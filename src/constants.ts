@@ -8,3 +8,5 @@ export const ERROR_MESSAGE_NTH_ROOT =
   'Cannot compute even roots of negative numbers. Please provide a valid input.';
 export const ERROR_MESSAGE_NTH_ROOT_NEGATIVE_DEGREE =
   'The root degree must be greater than zero. Please provide a positive value for y.';
+export const ERROR_MESSAGE_FACTORIAL =
+  'Whoops! Factorial of a negative number is not defined. Please provide a valid input.';

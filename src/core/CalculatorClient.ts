@@ -5,6 +5,7 @@ import { ClearMemoryCommand } from '../commands/ClearMemoryCommand';
 import { CubeCommand } from '../commands/CubeCommand';
 import { CubeRootCommand } from '../commands/CubeRootCommand';
 import { EqualsCommand } from '../commands/EqualsCommand';
+import { FactorialCommand } from '../commands/FactorialCommand';
 import { NegateCommand } from '../commands/NegateCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { RecallMemoryCommand } from '../commands/RecallMemoryCommand';
@@ -55,6 +56,7 @@ export class CalculatorClient {
       new BinaryOperationCommand((a, b) => getNthRoot(a, b))
     );
     this.invoker.setCommand('1/x', new ReciprocalCommand());
+    this.invoker.setCommand('x!', new FactorialCommand());
     this.invoker.setCommand('=', new EqualsCommand());
     this.invoker.setCommand('mc', new ClearMemoryCommand());
     this.invoker.setCommand('m+', new AddToMemoryCommand());
