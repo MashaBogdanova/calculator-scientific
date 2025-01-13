@@ -1,14 +1,18 @@
+import { AddToMemoryCommand } from '../commands/AddToMemoryCommand';
 import { BinaryOperationCommand } from '../commands/BinaryOperationCommand';
 import { ClearCommand } from '../commands/ClearCommand';
+import { ClearMemoryCommand } from '../commands/ClearMemoryCommand';
 import { CubeCommand } from '../commands/CubeCommand';
 import { CubeRootCommand } from '../commands/CubeRootCommand';
 import { EqualsCommand } from '../commands/EqualsCommand';
 import { NegateCommand } from '../commands/NegateCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
+import { RecallMemoryCommand } from '../commands/RecallMemoryCommand';
 import { ReciprocalCommand } from '../commands/ReciprocalCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { SqrtCommand } from '../commands/SqrtCommand';
 import { SquareCommand } from '../commands/SquareCommand';
+import { SubtractFromMemoryCommand } from '../commands/SubtractFromMemoryCommand';
 import { divide } from '../utils/divide';
 import { getNthRoot } from '../utils/get-nth-root';
 import { CalculatorInvoker } from './CalculatorInvoker';
@@ -52,5 +56,9 @@ export class CalculatorClient {
     );
     this.invoker.setCommand('1/x', new ReciprocalCommand());
     this.invoker.setCommand('=', new EqualsCommand());
+    this.invoker.setCommand('mc', new ClearMemoryCommand());
+    this.invoker.setCommand('m+', new AddToMemoryCommand());
+    this.invoker.setCommand('m-', new SubtractFromMemoryCommand());
+    this.invoker.setCommand('mr', new RecallMemoryCommand());
   }
 }

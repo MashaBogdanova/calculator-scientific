@@ -5,6 +5,7 @@ import { getSqrt } from '../utils/get-sqrt';
 export class CalculatorReceiver {
   private static value: string = INITIAL_VALUE;
   private static storedValue: number | null = null;
+  private static memory: number = 0;
   private static currentOperation: ((a: number, b: number) => number) | null =
     null;
 
@@ -66,5 +67,21 @@ export class CalculatorReceiver {
       this.storedValue = null;
       this.currentOperation = null;
     }
+  }
+
+  static clearMemory() {
+    this.memory = 0;
+  }
+
+  static addToMemory() {
+    this.memory += Number(this.value);
+  }
+
+  static subtractFromMemory() {
+    this.memory -= Number(this.value);
+  }
+
+  static recallMemory() {
+    this.value = String(this.memory);
   }
 }
