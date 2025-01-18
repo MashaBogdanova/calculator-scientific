@@ -9,16 +9,19 @@ export class CalculatorReceiver {
   private static memory: number = 0;
   private static currentOperation: ((a: number, b: number) => number) | null =
     null;
+  private static shouldValueUpdate: boolean = false;
 
   static getValue() {
     return Number(this.value);
   }
 
   static setValue(newValue: string) {
-    if (this.currentOperation !== null) {
-      this.value = INITIAL_VALUE;
+    if (this.shouldValueUpdate) {
+      this.value = newValue;
+      this.shouldValueUpdate = false;
+    } else {
+      this.value = this.value + newValue;
     }
-    this.value = this.value + newValue;
   }
 
   static negate() {
@@ -62,6 +65,7 @@ export class CalculatorReceiver {
       this.storedValue = Number(this.value);
     }
     this.currentOperation = operation;
+    this.shouldValueUpdate = true;
   }
 
   static equals() {
@@ -71,6 +75,7 @@ export class CalculatorReceiver {
       );
       this.storedValue = null;
       this.currentOperation = null;
+      this.shouldValueUpdate = false;
     }
   }
 
