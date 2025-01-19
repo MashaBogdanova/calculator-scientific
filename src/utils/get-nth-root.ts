@@ -16,5 +16,9 @@ export function getNthRoot(a: number, b: number): number {
     return a;
   }
 
-  return a ** (1 / b);
+  if (a < 0) {
+    return -1 * (-a) ** (1 / b);
+  } else {
+    return a ** (1 / b);
+  }
 }
