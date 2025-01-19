@@ -70,10 +70,11 @@ export class CalculatorReceiver {
 
   static equals() {
     if (this.storedValue !== null && this.currentOperation !== null) {
-      this.value = String(
+      const result = String(
         this.currentOperation(this.storedValue, Number(this.value))
       );
-      this.storedValue = null;
+      this.value = result;
+      this.storedValue = Number(result);
       this.currentOperation = null;
       this.shouldValueUpdate = false;
     }
