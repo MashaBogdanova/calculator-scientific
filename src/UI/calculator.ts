@@ -66,9 +66,15 @@ export class Calculator {
       });
     });
 
-    buttons.addEventListener('click', (event: MouseEvent) => {
+    buttonsContainer.addEventListener('click', (event: MouseEvent) => {
       const button = event.target as HTMLButtonElement;
-      this.invoker.executeCommand(button.innerText);
+
+      if (
+        button.classList.contains('button') ||
+        button.classList.contains('button_small')
+      ) {
+        this.invoker.executeCommand(button.innerText);
+      }
     });
   }
 
