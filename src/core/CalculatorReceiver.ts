@@ -30,6 +30,9 @@ export class CalculatorReceiver {
 
   static clear() {
     this.value = INITIAL_VALUE;
+    this.storedValue = null;
+    this.currentOperation = null;
+    this.shouldValueUpdate = false;
   }
 
   static square() {
@@ -63,18 +66,22 @@ export class CalculatorReceiver {
   static performBinaryOperation(operation: (a: number, b: number) => number) {
     if (this.storedValue === null) {
       this.storedValue = Number(this.value);
+    } else {
+      this.equals();
     }
+
     this.currentOperation = operation;
     this.shouldValueUpdate = true;
   }
 
   static equals() {
     if (this.storedValue !== null && this.currentOperation !== null) {
-      const result = String(
-        this.currentOperation(this.storedValue, Number(this.value))
+      const result = this.currentOperation(
+        this.storedValue,
+        Number(this.value)
       );
-      this.value = result;
-      this.storedValue = Number(result);
+      this.value = String(result);
+      this.storedValue = result;
       this.currentOperation = null;
       this.shouldValueUpdate = false;
     }
