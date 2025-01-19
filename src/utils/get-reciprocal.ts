@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE_DIVIDE } from '../constants';
+import { ERROR_MESSAGE_DIVIDE } from '../constants/constants';
 
 export const getReciprocal = (a: number) => {
   if (a === 0) {

@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE_SQRT } from '../constants';
+import { ERROR_MESSAGE_SQRT } from '../constants/constants';
 
 export function getSqrt(value: number): number {
   if (value < 0) {

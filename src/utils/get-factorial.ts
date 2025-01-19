@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE_FACTORIAL } from '../constants';
+import { ERROR_MESSAGE_FACTORIAL } from '../constants/constants';
 
 export const getFactorial = (value: number): number => {
   if (value < 0) {

@@ -15,18 +15,18 @@
   overflow: hidden;
 
   background: linear-gradient(
-                  to bottom,
-                  constants.$color-primary-xs 0%,
-                  constants.$color-primary-s 100%
+    to bottom,
+    constants.$color-primary-xs 0%,
+    constants.$color-primary-s 100%
   );
 
   @include mixins.transition;
 
   &_dark {
     background: linear-gradient(
-                    to bottom,
-                    constants.$color-secondary-m 0%,
-                    constants.$color-secondary 100%
+      to bottom,
+      constants.$color-secondary-m 0%,
+      constants.$color-secondary 100%
     );
 
     .toggle {
@@ -49,9 +49,9 @@
 
     .circle {
       background: linear-gradient(
-                      to left top,
-                      constants.$color-light-l,
-                      constants.$color-light-m
+        to left top,
+        constants.$color-light-l,
+        constants.$color-light-m
       );
       transform: translate(-25rem, 3rem);
     }

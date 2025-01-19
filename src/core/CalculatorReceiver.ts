@@ -1,4 +1,4 @@
-import { INITIAL_VALUE } from '../constants';
+import { INITIAL_VALUE } from '../constants/constants';
 import { getFactorial } from '../utils/get-factorial';
 import { getReciprocal } from '../utils/get-reciprocal';
 import { getSqrt } from '../utils/get-sqrt';

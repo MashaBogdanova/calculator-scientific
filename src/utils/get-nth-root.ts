@@ -1,7 +1,7 @@
 import {
   ERROR_MESSAGE_NTH_ROOT,
   ERROR_MESSAGE_NTH_ROOT_NEGATIVE_DEGREE,
-} from '../constants';
+} from '../constants/constants';
 
 export function getNthRoot(a: number, b: number): number {
   if (a < 0 && b % 2 === 0) {
