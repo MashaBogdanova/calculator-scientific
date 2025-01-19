@@ -12,6 +12,23 @@
 
   background-color: constants.$color-light-xs;
   border-radius: 3.9rem;
+
+  &:before {
+    content: '';
+
+    position: absolute;
+
+    width: 25rem;
+    height: 45rem;
+    background-color: constants.$color-tertiary;
+    border-radius: 70px;
+    filter: blur(2rem);
+    box-shadow: 20px 40px 100px constants.$color-tertiary;
+
+    z-index: -1;
+    transform: translate(3rem, -2rem);
+    transition: all 500ms ease-out;
+  }
 }
 
 .display {
@@ -25,6 +42,12 @@
   color: constants.$color-dark;
 }
 
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -32,4 +55,8 @@
   gap: 1rem;
 
   width: 100%;
+
+  &_small {
+    gap: 0.8rem;
+  }
 }

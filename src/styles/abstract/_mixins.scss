@@ -33,3 +33,7 @@
   border-radius: $radius;
   box-shadow: 0 $size $size constants.$color-dark-m;
 }
+
+@mixin transition {
+  transition: background-color 500ms ease-out;
+}

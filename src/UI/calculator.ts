@@ -13,11 +13,15 @@ export class Calculator {
   }
 
   private render() {
+    document.body.classList.add('body');
+
     const main = createElement({
       tag: 'main',
       styles: ['main'],
       parent: document.body,
     });
+
+    createElement({ tag: 'div', styles: ['circle'], parent: main });
 
     const calculator = createElement({
       tag: 'section',
@@ -32,10 +36,22 @@ export class Calculator {
       innerText: '0',
     });
 
+    const buttonsContainer = createElement({
+      tag: 'div',
+      styles: ['buttons-container'],
+      parent: calculator,
+    });
+
+    const buttonsSmall = createElement({
+      tag: 'div',
+      styles: ['buttons', 'buttons_small'],
+      parent: buttonsContainer,
+    });
+
     const buttons = createElement({
       tag: 'div',
       styles: ['buttons'],
-      parent: calculator,
+      parent: buttonsContainer,
     });
 
     this.calculatorButtons.map(({ isSmall, isAccent, label }) => {
@@ -45,7 +61,7 @@ export class Calculator {
           `${isSmall ? 'button_small' : 'button'}`,
           `${isAccent && 'button_accent'}`,
         ],
-        parent: buttons,
+        parent: isSmall ? buttonsSmall : buttons,
         innerText: label,
       });
     });
