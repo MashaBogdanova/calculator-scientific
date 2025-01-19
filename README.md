@@ -103,8 +103,3 @@ Sets up Husky to manage Git hooks, such as pre-commit or pre-push hooks, for ens
   Executes all test files in the project to ensure code functionality and correctness.
    ```bash
    npm run test
-  
-- **Generate a test coverage report**  
-  Runs tests and generates a detailed report showing how much of the codebase is covered by tests.
-   ```bash
-   npm run test:coverage
