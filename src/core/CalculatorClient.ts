@@ -7,6 +7,7 @@ import { CubeRootCommand } from '../commands/CubeRootCommand';
 import { EqualsCommand } from '../commands/EqualsCommand';
 import { FactorialCommand } from '../commands/FactorialCommand';
 import { NegateCommand } from '../commands/NegateCommand';
+import { PercentageCommand } from '../commands/PercentageCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { RecallMemoryCommand } from '../commands/RecallMemoryCommand';
 import { ReciprocalCommand } from '../commands/ReciprocalCommand';
@@ -57,6 +58,7 @@ export class CalculatorClient {
     );
     this.invoker.setCommand('1/x', new ReciprocalCommand());
     this.invoker.setCommand('x!', new FactorialCommand());
+    this.invoker.setCommand('%', new PercentageCommand());
     this.invoker.setCommand('=', new EqualsCommand());
     this.invoker.setCommand('mc', new ClearMemoryCommand());
     this.invoker.setCommand('m+', new AddToMemoryCommand());

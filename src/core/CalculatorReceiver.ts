@@ -63,6 +63,10 @@ export class CalculatorReceiver {
     this.value = String(getFactorial(Number(this.value)));
   }
 
+  static percentage() {
+    this.value = String(Number(this.value) / 100);
+  }
+
   static performBinaryOperation(operation: (a: number, b: number) => number) {
     if (this.storedValue === null) {
       this.storedValue = Number(this.value);
