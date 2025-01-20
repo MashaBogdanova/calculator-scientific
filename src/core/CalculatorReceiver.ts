@@ -64,7 +64,11 @@ export class CalculatorReceiver {
   }
 
   static percentage() {
-    this.value = String(Number(this.value) / 100);
+    if (this.storedValue !== null && this.currentOperation !== null) {
+      this.value = String((this.storedValue * Number(this.value)) / 100);
+    } else {
+      this.value = String(Number(this.value) / 100);
+    }
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {

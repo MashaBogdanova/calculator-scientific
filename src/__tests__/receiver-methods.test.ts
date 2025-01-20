@@ -58,6 +58,16 @@ describe('CalculatorReceiver', () => {
     expect(CalculatorReceiver.getValue()).toBe(0.5);
   });
 
+  it('should calculate percentage after addition', () => {
+    const add = (a: number, b: number) => a + b;
+    CalculatorReceiver.setValue('50');
+    CalculatorReceiver.performBinaryOperation(add);
+    CalculatorReceiver.setValue('10');
+    CalculatorReceiver.percentage();
+    CalculatorReceiver.equals();
+    expect(CalculatorReceiver.getValue()).toBe(55);
+  });
+
   it('should perform binary operations', () => {
     const add = (a: number, b: number) => a + b;
     CalculatorReceiver.setValue('5');
