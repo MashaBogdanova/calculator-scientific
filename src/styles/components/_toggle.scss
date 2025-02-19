@@ -1,0 +1,32 @@
+@use '../abstract/constants' as constants;
+@use '../abstract/mixins' as mixins;
+
+.toggle {
+  display: flex;
+  gap: 2.5rem;
+  padding: 1rem 1.5rem;
+
+  background-color: constants.$color-light-xs;
+  border-radius: 5rem;
+  border: 0.5px solid constants.$color-light-xs;
+  box-shadow: 0 4px 4px constants.$color-dark-s;
+  cursor: pointer;
+
+  @include mixins.transition;
+
+  &__icon {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+
+    background-size: cover;
+
+    &_light {
+      background-image: url('/src/assets/sun.png');
+    }
+
+    &_dark {
+      background-image: url('/src/assets/moon.png');
+    }
+  }
+}

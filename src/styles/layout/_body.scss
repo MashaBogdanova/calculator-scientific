@@ -1,0 +1,63 @@
+@use '../abstract/constants' as constants;
+@use '../abstract/mixins' as mixins;
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 4rem;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    constants.$color-primary-xs 0%,
+    constants.$color-primary-s 100%
+  );
+
+  @include mixins.transition;
+
+  &_dark {
+    background: linear-gradient(
+      to bottom,
+      constants.$color-secondary-m 0%,
+      constants.$color-secondary 100%
+    );
+
+    .toggle {
+      background-color: constants.$color-primary;
+    }
+
+    .display {
+      color: constants.$color-light-m;
+    }
+
+    .calculator {
+      background-color: constants.$color-secondary-s;
+    }
+
+    .calculator:before {
+      background-color: constants.$color-secondary-xs;
+      box-shadow: -50px 0 100px constants.$color-secondary-xs;
+      transform: translate(-8rem, 2rem);
+    }
+
+    .circle {
+      background: linear-gradient(
+        to left top,
+        constants.$color-light-l,
+        constants.$color-light-m
+      );
+      transform: translate(-25rem, 3rem);
+    }
+  }
+}
+
+.main {
+  position: relative;
+}
