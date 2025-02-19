@@ -32,6 +32,7 @@ export class CalculatorReceiver {
 
   static negate() {
     this.value = '-' + this.value;
+    this.storedValue = Number(this.value);
   }
 
   static clear() {
@@ -43,30 +44,37 @@ export class CalculatorReceiver {
 
   static square() {
     this.value = String(Number(this.value) ** 2);
+    this.storedValue = Number(this.value);
   }
 
   static cube() {
     this.value = String(Number(this.value) ** 3);
+    this.storedValue = Number(this.value);
   }
 
   static powerOfTen() {
     this.value = String(10 ** Number(this.value));
+    this.storedValue = Number(this.value);
   }
 
   static sqrt() {
     this.value = String(getSqrt(Number(this.value)));
+    this.storedValue = Number(this.value);
   }
 
   static cubeRoot() {
     this.value = String(Number(this.value) ** (1 / 3));
+    this.storedValue = Number(this.value);
   }
 
   static reciprocal() {
     this.value = String(getReciprocal(Number(this.value)));
+    this.storedValue = Number(this.value);
   }
 
   static factorial() {
     this.value = String(getFactorial(Number(this.value)));
+    this.storedValue = Number(this.value);
   }
 
   static percentage() {
@@ -75,6 +83,7 @@ export class CalculatorReceiver {
     } else {
       this.value = String(Number(this.value) / 100);
     }
+    this.storedValue = Number(this.value);
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {
