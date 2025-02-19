@@ -31,7 +31,11 @@ export class CalculatorReceiver {
   }
 
   static negate() {
-    this.value = '-' + this.value;
+    if (this.value.startsWith('-')) {
+      this.value = this.value.slice(1);
+    } else {
+      this.value = '-' + this.value;
+    }
     this.storedValue = Number(this.value);
   }
 
