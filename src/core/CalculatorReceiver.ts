@@ -10,13 +10,19 @@ export class CalculatorReceiver {
   private static currentOperation: ((a: number, b: number) => number) | null =
     null;
   private static shouldValueUpdate: boolean = false;
+  private static isAfterEqual: boolean = false;
 
   static getValue() {
     return Number(this.value);
   }
 
   static setValue(newValue: string) {
-    if (this.shouldValueUpdate) {
+    if (this.shouldValueUpdate || this.isAfterEqual) {
+      if (this.isAfterEqual) {
+        this.storedValue = null;
+        this.currentOperation = null;
+        this.isAfterEqual = false;
+      }
       this.value = newValue;
       this.shouldValueUpdate = false;
     } else {
@@ -72,6 +78,8 @@ export class CalculatorReceiver {
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {
+    this.isAfterEqual = false;
+
     if (this.storedValue === null) {
       this.storedValue = Number(this.value);
     } else {
@@ -92,6 +100,7 @@ export class CalculatorReceiver {
       this.storedValue = result;
       this.currentOperation = null;
       this.shouldValueUpdate = false;
+      this.isAfterEqual = true;
     }
   }
 
