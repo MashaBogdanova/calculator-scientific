@@ -101,6 +101,7 @@ export class CalculatorReceiver {
 
     this.currentOperation = operation;
     this.shouldValueUpdate = true;
+    this.isAfterEqual = false;
   }
 
   static equals() {
