@@ -122,6 +122,10 @@ export class CalculatorReceiver {
   }
 
   static performBinaryOperation(operation: (a: number, b: number) => number) {
+    if (this.isAfterOperation) {
+      return;
+    }
+
     this.isAfterEqual = false;
 
     if (this.storedValue === null) {
