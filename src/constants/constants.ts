@@ -1,4 +1,6 @@
 export const INITIAL_VALUE = '0';
+export const ZERO_PREFIXED_VALUES_REGEXP = /^0(?!$|\.$|\.\d+$)/;
+export const ONLY_ZEROS_VALUES_REGEXP = /^0+$/;
 
 export const ERROR_MESSAGE_DIVIDE =
   "Whoops! You can't divide by zero. Please provide a non-zero value.";

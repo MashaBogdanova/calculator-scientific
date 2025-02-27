@@ -11,6 +11,7 @@ import { PercentageCommand } from '../commands/PercentageCommand';
 import { PowerOfTenCommand } from '../commands/PowerOfTenCommand';
 import { RecallMemoryCommand } from '../commands/RecallMemoryCommand';
 import { ReciprocalCommand } from '../commands/ReciprocalCommand';
+import { SetPointCommand } from '../commands/SetPointCommand';
 import { SetValueCommand } from '../commands/SetValueCommand';
 import { SqrtCommand } from '../commands/SqrtCommand';
 import { SquareCommand } from '../commands/SquareCommand';
@@ -38,6 +39,7 @@ export class CalculatorClient {
     this.invoker.setCommand('7', new SetValueCommand(7));
     this.invoker.setCommand('8', new SetValueCommand(8));
     this.invoker.setCommand('9', new SetValueCommand(9));
+    this.invoker.setCommand('.', new SetPointCommand());
     this.invoker.setCommand('+/-', new NegateCommand());
     this.invoker.setCommand('+', new BinaryOperationCommand((a, b) => a + b));
     this.invoker.setCommand('-', new BinaryOperationCommand((a, b) => a - b));

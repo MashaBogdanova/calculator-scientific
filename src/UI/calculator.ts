@@ -78,7 +78,7 @@ export class Calculator {
     });
   }
 
-  static updateDisplay(value: number) {
+  static updateDisplay(value: string) {
     const display = document.querySelector('.display') as HTMLElement;
 
     if (display) {
